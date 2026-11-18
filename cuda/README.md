@@ -71,16 +71,17 @@ int main() {
 
 本机环境：GeForce MX230（sm_61，2 GB）、CUDA 12.5、MSVC 14.44。
 
-`examples/demo.cu` 是可直接编译运行的 CUDA C++ 程序，含设备查询、向量加法、矩阵乘法三段。
+- `examples/demo.cu`：入门示例（逐行中文注释），含设备查询、向量加法、矩阵乘法三段，适合学习。
+- `examples/demo_bench.cu`：让同一批计算跑三遍做性能对比——`[1]` GPU + `cudaMemcpy`、`[2]` GPU + `cudaMallocManaged`（统一内存）、`[3]` CPU，逐步骤打印耗时。
 
-编译运行（二选一，在仓库根目录执行）：
+编译运行（在仓库根目录执行）：
 
 ```powershell
-# 通用脚本：第一个参数是源文件（可省略，默认 cuda/examples/demo.cu）
+# 编译运行 demo.cu（默认，不传参数即可）
 powershell -ExecutionPolicy Bypass -File cuda/scripts/build.ps1
 
-# 或使用快捷入口
-powershell -ExecutionPolicy Bypass -File cuda/examples/build.ps1
+# 编译运行 demo_bench.cu（第一个参数是源文件）
+powershell -ExecutionPolicy Bypass -File cuda/scripts/build.ps1 cuda/examples/demo_bench.cu
 ```
 
 通用脚本还支持 `-Out`（输出名）、`-Arch`（架构，默认 sm_61）、`-NoRun`（只编译）、`-NoClean`（保留 .lib/.exp）等参数。

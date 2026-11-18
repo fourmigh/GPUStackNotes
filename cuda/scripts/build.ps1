@@ -53,7 +53,7 @@ foreach ($v in $vcvarsCandidates) {
 if (-not $vcvars) { throw "vcvarsall.bat (MSVC) not found." }
 
 # 5. Compile
-$cmd = "call `"$vcvars`" x64 && `"$nvcc`" -arch=$Arch --cudart static -allow-unsupported-compiler -Xcompiler=/utf-8 -o `"$Out`" `"$Src`""
+$cmd = "call `"$vcvars`" x64 && `"$nvcc`" -O3 -arch=$Arch --cudart static -allow-unsupported-compiler -Xcompiler=/utf-8 -o `"$Out`" `"$Src`""
 Write-Host "==> $cmd"
 cmd /c $cmd
 if ($LASTEXITCODE -ne 0) { throw "nvcc failed (exit $LASTEXITCODE)" }
