@@ -1,0 +1,22 @@
+# 编译产物（不提交）
+*.exe
+*.obj
+*.o
+*.lib
+*.exp
+*.pdb
+*.ilk
+*.res
+
+# CUDA / NVCC 中间文件
+*.cudafe1.cpp
+*.cudafe1.gpu
+*.cudafe1.stub.c
+*.cu.c
+*.cu.cpp
+*.i
+*.ii
+
+# Visual Studio
+.vs/
+*.vcxproj.user
